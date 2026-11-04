@@ -1,13 +1,13 @@
 public class Game {
 
-    public boolean validateChoice(String choice) {
+    public static boolean validateChoice(String choice) {
         return switch (choice.toLowerCase()) {
             case "rock", "paper", "scissors" ->  true;
             default ->  false;
         };
     }
 
-    public int decideRoundWinner(String p1Choice, String p2Choice) {
+    public static int decideRoundWinner(String p1Choice, String p2Choice) {
 
         if (p1Choice.equalsIgnoreCase(p2Choice))
             return 0;

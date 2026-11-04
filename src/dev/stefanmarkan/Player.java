@@ -32,10 +32,9 @@ public class Player {
     @Override
     public String toString() {
         return String.format("""
-                %s
-                name: %s
+                Player: %s
                 score: %d
                 rounds: %d""",
-                (player), getName(), getHighscore(), getNumberOfRounds());
+                getName(), getHighscore(), getNumberOfRounds());
     }
 }
