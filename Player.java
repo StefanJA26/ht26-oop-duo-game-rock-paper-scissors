@@ -12,13 +12,13 @@ public class Player {
     public String getName() {
         return name;
     }
-    
+
     public int getHighscore() {
         return highscore;
     }
 
-    public void setHighscore(int highscore) {
-        this.highscore = highscore;
+    public void incrementHighscore() {
+        highscore++;
     }
 
     public int getNumberOfRounds() {
@@ -27,5 +27,15 @@ public class Player {
 
     public void setNumberOfRounds(int numberOfRounds) {
         this.numberOfRounds = numberOfRounds;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                %s
+                name: %s
+                score: %d
+                rounds: %d""",
+                (player), getName(), getHighscore(), getNumberOfRounds());
     }
 }
