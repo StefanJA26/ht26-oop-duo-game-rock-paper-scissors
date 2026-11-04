@@ -21,20 +21,21 @@ public class Player {
         highscore++;
     }
 
-    public int getNumberOfRounds() {
-        return numberOfRounds;
+    public void incrementRounds() {
+        numberOfRounds++;
     }
 
-    public void setNumberOfRounds(int numberOfRounds) {
-        this.numberOfRounds = numberOfRounds;
+    public int getNumberOfRounds() {
+        return numberOfRounds;
     }
 
     @Override
     public String toString() {
         return String.format("""
                 Player: %s
-                score: %d
-                rounds: %d""",
+                Score: %d
+                Rounds: %d
+                """,
                 getName(), getHighscore(), getNumberOfRounds());
     }
 }

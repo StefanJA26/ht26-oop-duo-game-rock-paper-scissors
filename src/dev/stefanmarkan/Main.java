@@ -13,9 +13,10 @@ public class Main {
             clearScreen();
             System.out.println("Welcome to the Rock, Paper and Scissor game!");
 
-            System.out.println("Name player one.");
+            System.out.printf("%nName player one: ");
             String playername1 = scanner.nextLine();
-            System.out.println("Name player two.");
+
+            System.out.printf("%nName player two: ");
             String playername2 = scanner.nextLine();
 
             Player p1 = new Player(playername1);
@@ -24,26 +25,29 @@ public class Main {
             String p1Choice;
             String p2Choice;
             int roundCount = 0;
+
             mainLoop: while (true) {
                 clearScreen();
                 roundCount++;
                 System.out.println("Round: " + roundCount);
 
-                System.out.print("Player 1 (rock, paper, scissor. quit to quit): ");
+                System.out.print("Player 1 (rock, paper, scissors, quit to quit): ");
                 do {
                     p1Choice = scanner.nextLine();
                     p1Choice = p1Choice.toLowerCase();
-                    if (p1Choice.equalsIgnoreCase("quit")) break mainLoop;
+                    if (p1Choice.equalsIgnoreCase("quit"))
+                        break mainLoop;
                 } while (!Game.validateChoice(p1Choice));
 
                 clearScreen();
                 System.out.println("Round: " + roundCount);
 
-                System.out.print("Player 2 (rock, paper, scissor. exit to quit): ");
+                System.out.print("Player 2 (rock, paper, scissors, quit to quit): ");
                 do {
                     p2Choice = scanner.nextLine();
                     p2Choice = p2Choice.toLowerCase();
-                    if (p2Choice.equalsIgnoreCase("quit")) break mainLoop;
+                    if (p2Choice.equalsIgnoreCase("quit"))
+                        break mainLoop;
                 } while (!Game.validateChoice(p2Choice));
 
                 switch (Game.decideRoundWinner(p1Choice, p2Choice)) {
@@ -52,7 +56,7 @@ public class Main {
                     }
                     case 1 -> {
                         p1.incrementHighscore();
-                        System.out.println("P1 winds the round");
+                        System.out.println("P1 wins the round!!");
                     }
                     case 2 -> {
                         p2.incrementHighscore();
@@ -61,13 +65,16 @@ public class Main {
                     default -> {
                         System.err.println("Something broke");
                     }
-                };
+                }
+                ;
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     System.out.println("Wait was interrupted");
                 }
+                p1.incrementRounds();
+                p2.incrementRounds();
             }
             clearScreen();
             System.out.println(p1.toString());
