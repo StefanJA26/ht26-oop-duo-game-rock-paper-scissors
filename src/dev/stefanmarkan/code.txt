@@ -1,0 +1,16 @@
+switch (decideRoundWinner(p1Choice, p2Choice)) {
+        case 0 -> {
+            System.out.println("Round tied");
+            }
+        case 1 -> {
+            p1.incrementHighscore;
+            System.out.println("P1 winds the round");
+            }
+        case 2 -> {
+            p2.incrementHighscore;
+            System.out.println("P2 Wins the round!!!!!!  OMG OMG ");
+        }
+        default -> {
+            System.err.println("Something broke");
+        }
+    }
